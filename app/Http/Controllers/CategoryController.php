@@ -34,8 +34,8 @@ class CategoryController extends Controller
     // READ : Menampilkan detail kategori
     public function show($id)
     {
-        $category = Category::findOrFail($id);
-        return response()->json(['data' => $category]);
+        $category = Category::with('products')->findOrFail($id);
+        return view('categories.show', compact('category'));
     }
 
     // UPDATE : Form edit kategori (untuk view)

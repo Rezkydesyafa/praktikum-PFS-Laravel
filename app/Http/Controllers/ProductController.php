@@ -42,7 +42,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('category')->findOrFail($id);
-        return response()->json($product);
+        return view('products.show', compact('product'));
     }
 
     // UPDATE: Form edit produk (untuk view)

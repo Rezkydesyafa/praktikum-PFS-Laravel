@@ -6,13 +6,12 @@
 <div class="card">
     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
         <h5 class="mb-0">Daftar Produk</h5>
-        <div>
-            <a href="{{ route('categories.index') }}" class="btn btn-light btn-sm text-primary me-2">
-                Kategori
-            </a>
+        <div> 
+            @role('admin')
             <a href="{{ route('products.create') }}" class="btn btn-light btn-sm text-primary fw-bold">
                 Tambah Produk
             </a>
+            @endrole
         </div>
     </div>
     <div class="card-body">
@@ -40,6 +39,10 @@
                             <span class="badge bg-info text-dark">{{ $product->category->name }}</span>
                         </td>
                         <td>
+                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-info btn-sm text-white">
+                                Lihat
+                            </a>
+                            @role('admin')
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">
                                 Edit
                             </a>
@@ -52,6 +55,7 @@
                                     Hapus
                                 </button>
                             </form>
+                            @endrole
                         </td>
                     </tr>
                     @empty

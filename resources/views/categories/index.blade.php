@@ -4,17 +4,16 @@
 
 @section('content')
 <div class="card">
-    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+    <div class="card-header bg-white text-dark d-flex justify-content-between align-items-center">
         <h5 class="mb-0">Daftar Kategori</h5>
         <div>
-            <a href="{{ route('products.index') }}" class="btn btn-light btn-sm text-primary me-2">
-               Ke Produk
-            </a>
-            <a href="{{ route('categories.create') }}" class="btn btn-light btn-sm text-primary fw-bold">
+            @role('admin')
+            <a href="{{ route('categories.create') }}" class="btn btn-info  btn-sm text-primary fw-bold">
                 Tambah Kategori
             </a>
+            @endrole
         </div>
-    </div>
+    </div>  
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
@@ -31,6 +30,10 @@
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $category->name }}</td>
                         <td>
+                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info btn-sm text-white">
+                                Lihat
+                            </a>
+                            @role('admin')
                             <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">
                                 Edit
                             </a>
@@ -42,6 +45,7 @@
                                     Hapus
                                 </button>
                             </form>
+                            @endrole
                         </td>
                     </tr>
                     @empty
