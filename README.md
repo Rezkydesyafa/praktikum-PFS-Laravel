@@ -23,21 +23,13 @@ Sistem manajemen e-commerce dengan fitur CRUD lengkap untuk produk dan kategori,
 -   Blade Templates
 -   Tailwind CSS
 
-## Persyaratan Sistem
-
--   PHP >= 8.2
--   Composer
--   MySQL/MariaDB
--   Node.js & NPM
--   Laragon (atau XAMPP/WAMP)
-
 ## Cara Instalasi
 
 ### 1. Clone atau Download Project
 
 ```bash
 # Jika menggunakan Git
-git clone <repository-url>
+git clone https://github.com/Rezkydesyafa/praktikum-PFS-Laravel.git
 cd ecommercee
 
 # Atau extract file ZIP ke folder c:\laragon\www\ecommercee
@@ -71,14 +63,14 @@ Buka file `.env` dan sesuaikan konfigurasi database:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=ecommerce_db
+DB_DATABASE=ecommerce
 DB_USERNAME=root
 DB_PASSWORD=
 ```
 
 ### 5. Buat Database
 
-Buat database baru dengan nama `ecommerce_db` melalui phpMyAdmin atau MySQL command line:
+Buat database baru dengan nama `ecommerce` atau yang sudah ada
 
 ```sql
 CREATE DATABASE ecommerce_db;
